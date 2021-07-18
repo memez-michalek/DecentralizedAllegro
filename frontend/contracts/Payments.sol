@@ -11,9 +11,9 @@ contract Payments{
         address to;
         uint    time;
         }
-    uint transactionNumber;
-    mapping(uint => Transaction) transactions;
-    mapping(address => uint) balance;
+    uint internal transactionNumber;
+    mapping(uint => Transaction) internal  transactions;
+    mapping(address => uint) internal balance;
 
 
 

@@ -14,7 +14,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state ={account: "", balance: "", address: "", amount: "", web3: null}
+    this.state ={account: "", balance: "",  amount: "",withdrawAmount: "", web3: null}
   }
   async componentDidMount() {
     try{
@@ -60,14 +60,13 @@ class App extends React.Component {
 
   }
   
- onSubmit = (e) =>{
+ onSubmit = async (e) =>{
   e.preventDefault()
   
   
-
-  const contract = new this.state.web3.eth.Contract(Payments.abi,"0x29118205e1DC737F52FE0E9A82d1085b44309609" ,{
+  
+  const contract = new this.state.web3.eth.Contract(Payments.abi,"0xf2da3716AFF652eC3FA973DD4ae9a8516f6b9cfb" ,{
     gasPrice: "20000000000",
-    from: this.state.account,
   }, function(error, callback){
     if (error !== "undefinded"){
       console.error(error)
@@ -76,27 +75,77 @@ class App extends React.Component {
     }
   })
   
-  console.log(this.state.amount)
-  contract.methods.deposit(2).send({from: this.state.account, gasPrice: "20000000000", value: this.state.amount}).on("transactionHash", function(hash){
+  console.log(this.state)
+  contract.methods.deposit(2).send({
+    from: this.state.account,
+    gasPrice: "20000000000",
+    gasLimit: "6000000",
+    value: this.state.amount
+  }).on("transactionHash", function(hash){
     console.log(hash)
   }).on("error", function(receipt, err){
-    console.log(receipt, err)
+    console.log(receipt)
+    console.log(err)
   }).on("receipt", function(receipt){
     console.log(receipt)
   }).on("confirmation", function(confirmation, receipt){
     console.log(confirmation, receipt)
   })
+  
+  
+
+  }
+
+  onWithdraw = (event) =>{
+    event.preventDefault();
+    
+    if(event.target.name === "amount"){
+      this.setState({withdrawAmount: event.target.value})
+    }
+
+  }
 
 
-}
+  onSubmitWithdraw = async (e) =>{
+    e.preventDefault();
+
+    const contract = new this.state.web3.eth.Contract(Payments.abi,"0xf2da3716AFF652eC3FA973DD4ae9a8516f6b9cfb" ,{
+      gasPrice: "20000000000",
+    }, function(error, callback){
+      console.log(error, callback)
+    })
+
+    await contract.methods.withdraw(
+      this.state.withdrawAmount,
+      ).send({
+        from: this.state.account,
+        gasPrice: "20000000000",
+        gasLimit: "6000000",
+      }
+      ).on("transactionHash", (hash)=>{
+        console.log(hash)
+      }).on("receipt", (receipt)=>{
+        console.log(receipt)
+      }).on("confirmation", (confirmation, receipt)=>{
+        console.log(confirmation, receipt)
+      }).on("error", (error, callback)=>{
+        console.log(error, callback)
+      })
+
+
+
+
+  } 
 
   render(){
     
 
     return (
+
+      <div>
       <div>
       <h1>Metmask address {this.state.account} Balance {this.state.balance}</h1>
-
+      <span>Deposit</span>
       
       <form onSubmit={this.onSubmit}>
         <label>Amount</label>
@@ -106,6 +155,23 @@ class App extends React.Component {
 
 
       </div>
+      <div>
+        <span>Withdraw</span>
+        <form onSubmit={this.onSubmitWithdraw}>
+          <label>Amount</label>
+          <input name="amount" type="number" onChange={this.onWithdraw}></input>
+          <button type="submit">les go</button>
+
+        </form>
+
+
+
+      </div>
+      </div>
+
+
+
+
 
     )
   }
