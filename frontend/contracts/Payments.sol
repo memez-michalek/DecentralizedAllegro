@@ -63,8 +63,9 @@ contract Payments{
         }
 
     }
-    function getCurrentBalance() public {
+    function getCurrentBalance() public returns(uint){
         emit CurrentBalance(balance[msg.sender]);
+        return (balance[msg.sender]);
     }
 
 

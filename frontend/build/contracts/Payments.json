@@ -144,14 +144,20 @@
     {
       "inputs": [],
       "name": "getCurrentBalance",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.2+commit.661d1103\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Balance\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"CurrentBalance\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"ID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct Payments.Transaction\",\"name\":\"t\",\"type\":\"tuple\"}],\"name\":\"Deposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"ID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct Payments.Transaction\",\"name\":\"t\",\"type\":\"tuple\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"WithdrawFailure\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBalance\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Payments.sol\":\"Payments\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Payments.sol\":{\"keccak256\":\"0x4a2b3068a54f1cf1ab8565105254fab49e2e070e88e3cb7bf9f2aa724092d9c4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://33922aaae55bf15732b82aa6d2f01d6cecab07ffd452e61aa50d9d21ae1691c6\",\"dweb:/ipfs/QmWoDcKzFnQijn2KSXhj96CVpa1jdVZWfqWydZHp5ER7FC\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506105e6806100206000396000f3fe608060405260043610610050577c010000000000000000000000000000000000000000000000000000000060003504632e1a7d4d8114610055578063a57497101461006a578063d0e30db01461007f575b600080fd5b61006861006336600461045a565b610087565b005b34801561007657600080fd5b5061006861029f565b6100686102e5565b3360009081526002602052604090205481116102725760016000808282546100af9190610533565b90915550506040805160a0810182526000805482526020808301859052308385015233606084018190524260808501528252600290529182208054919284926100f990849061056a565b90915550506000805481526001602081815260408084208551815591850151928201929092558382015160028201805473ffffffffffffffffffffffffffffffffffffffff92831673ffffffffffffffffffffffffffffffffffffffff199182161790915560608601516003840180549190931691161790556080840151600490910155518190339085908381818185875af1925050503d80600081146101bc576040519150601f19603f3d011682016040523d82523d6000602084013e6101c1565b606091505b509150915081610231576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601260248201527f636f756c64206e6f742077697468647261770000000000000000000000000000604482015260640160405180910390fd5b7fda67dfebe676324b2e821f78a495885523e66dc69a7f5763afe60464bd350e4183826040516102629291906104d2565b60405180910390a150505061029c565b6040517f1a0263ed436266744072d5b62695bd5a661e1b61e106a60b28f9b2559375cde390600090a15b50565b336000908152600260209081526040918290205491519182527fccd63b477c883a586271d6c5e65e8a82327bddc52ed1908a1078708f8c5c101a910160405180910390a1565b60016000808282546102f79190610533565b90915550506040805160a08101909152600080548252906020810161032434670de0b6b3a764000061054b565b815233602080830182905230604080850191909152426060948501526000805481526001808452828220875181558785015191810191909155868301516002808301805473ffffffffffffffffffffffffffffffffffffffff93841673ffffffffffffffffffffffffffffffffffffffff199182161790915597890151600384018054919093169816979097179055608087015160049091015592835292905220549091506103d33482610533565b3360009081526002602052604090819020829055517fe8d947d7ebdd7b8b8fa2ad2022c7591418ac32d8c29c5f8a8fc9de52ffa54092916104179190815260200190565b60405180910390a17f28e98b83f2df9fe9efcc7b23e1487634c2d4001d734219002bbc4b741c2447b48260405161044e91906104be565b60405180910390a15050565b60006020828403121561046b578081fd5b5035919050565b8051825260208101516020830152604081015173ffffffffffffffffffffffffffffffffffffffff80821660408501528060608401511660608501525050608081015160808301525050565b60a081016104cc8284610472565b92915050565b60006104de8285610472565b60c060a083015282518060c0840152815b8181101561050c57602081860181015160e08684010152016104ef565b8181111561051d578260e083860101525b50601f01601f19169190910160e0019392505050565b6000821982111561054657610546610581565b500190565b600081600019048311821515161561056557610565610581565b500290565b60008282101561057c5761057c610581565b500390565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fdfea26469706673582212208e918c3fcf21018c1d048b76fad9eccdb0d003fdc764df8020483e0b6a74a3a164736f6c63430008020033",
-  "deployedBytecode": "0x608060405260043610610050577c010000000000000000000000000000000000000000000000000000000060003504632e1a7d4d8114610055578063a57497101461006a578063d0e30db01461007f575b600080fd5b61006861006336600461045a565b610087565b005b34801561007657600080fd5b5061006861029f565b6100686102e5565b3360009081526002602052604090205481116102725760016000808282546100af9190610533565b90915550506040805160a0810182526000805482526020808301859052308385015233606084018190524260808501528252600290529182208054919284926100f990849061056a565b90915550506000805481526001602081815260408084208551815591850151928201929092558382015160028201805473ffffffffffffffffffffffffffffffffffffffff92831673ffffffffffffffffffffffffffffffffffffffff199182161790915560608601516003840180549190931691161790556080840151600490910155518190339085908381818185875af1925050503d80600081146101bc576040519150601f19603f3d011682016040523d82523d6000602084013e6101c1565b606091505b509150915081610231576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601260248201527f636f756c64206e6f742077697468647261770000000000000000000000000000604482015260640160405180910390fd5b7fda67dfebe676324b2e821f78a495885523e66dc69a7f5763afe60464bd350e4183826040516102629291906104d2565b60405180910390a150505061029c565b6040517f1a0263ed436266744072d5b62695bd5a661e1b61e106a60b28f9b2559375cde390600090a15b50565b336000908152600260209081526040918290205491519182527fccd63b477c883a586271d6c5e65e8a82327bddc52ed1908a1078708f8c5c101a910160405180910390a1565b60016000808282546102f79190610533565b90915550506040805160a08101909152600080548252906020810161032434670de0b6b3a764000061054b565b815233602080830182905230604080850191909152426060948501526000805481526001808452828220875181558785015191810191909155868301516002808301805473ffffffffffffffffffffffffffffffffffffffff93841673ffffffffffffffffffffffffffffffffffffffff199182161790915597890151600384018054919093169816979097179055608087015160049091015592835292905220549091506103d33482610533565b3360009081526002602052604090819020829055517fe8d947d7ebdd7b8b8fa2ad2022c7591418ac32d8c29c5f8a8fc9de52ffa54092916104179190815260200190565b60405180910390a17f28e98b83f2df9fe9efcc7b23e1487634c2d4001d734219002bbc4b741c2447b48260405161044e91906104be565b60405180910390a15050565b60006020828403121561046b578081fd5b5035919050565b8051825260208101516020830152604081015173ffffffffffffffffffffffffffffffffffffffff80821660408501528060608401511660608501525050608081015160808301525050565b60a081016104cc8284610472565b92915050565b60006104de8285610472565b60c060a083015282518060c0840152815b8181101561050c57602081860181015160e08684010152016104ef565b8181111561051d578260e083860101525b50601f01601f19169190910160e0019392505050565b6000821982111561054657610546610581565b500190565b600081600019048311821515161561056557610565610581565b500290565b60008282101561057c5761057c610581565b500390565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fdfea26469706673582212208e918c3fcf21018c1d048b76fad9eccdb0d003fdc764df8020483e0b6a74a3a164736f6c63430008020033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.2+commit.661d1103\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Balance\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"CurrentBalance\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"ID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct Payments.Transaction\",\"name\":\"t\",\"type\":\"tuple\"}],\"name\":\"Deposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"ID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct Payments.Transaction\",\"name\":\"t\",\"type\":\"tuple\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"WithdrawFailure\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Payments.sol\":\"Payments\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Payments.sol\":{\"keccak256\":\"0x1dd2fdcb6666ec9e0b977e102a129f26797fb0bacaef956198edfd3ca4bbaec6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0937da7d28589e05981468d5468356254e7671a4b2ab74dfa728446bea8395ea\",\"dweb:/ipfs/QmcWVognf9cSpUvux8vQQ1eCUzf6iCjCAuoZrwJ1dvQSY6\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610609806100206000396000f3fe608060405260043610610050577c010000000000000000000000000000000000000000000000000000000060003504632e1a7d4d8114610055578063a57497101461006a578063d0e30db014610091575b600080fd5b61006861006336600461047d565b610099565b005b34801561007657600080fd5b5061007f6102b1565b60405190815260200160405180910390f35b610068610308565b3360009081526002602052604090205481116102845760016000808282546100c19190610556565b90915550506040805160a08101825260008054825260208083018590523083850152336060840181905242608085015282526002905291822080549192849261010b90849061058d565b90915550506000805481526001602081815260408084208551815591850151928201929092558382015160028201805473ffffffffffffffffffffffffffffffffffffffff92831673ffffffffffffffffffffffffffffffffffffffff199182161790915560608601516003840180549190931691161790556080840151600490910155518190339085908381818185875af1925050503d80600081146101ce576040519150601f19603f3d011682016040523d82523d6000602084013e6101d3565b606091505b509150915081610243576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601260248201527f636f756c64206e6f742077697468647261770000000000000000000000000000604482015260640160405180910390fd5b7fda67dfebe676324b2e821f78a495885523e66dc69a7f5763afe60464bd350e4183826040516102749291906104f5565b60405180910390a15050506102ae565b6040517f1a0263ed436266744072d5b62695bd5a661e1b61e106a60b28f9b2559375cde390600090a15b50565b3360009081526002602090815260408083205490519081527fccd63b477c883a586271d6c5e65e8a82327bddc52ed1908a1078708f8c5c101a910160405180910390a1503360009081526002602052604090205490565b600160008082825461031a9190610556565b90915550506040805160a08101909152600080548252906020810161034734670de0b6b3a764000061056e565b815233602080830182905230604080850191909152426060948501526000805481526001808452828220875181558785015191810191909155868301516002808301805473ffffffffffffffffffffffffffffffffffffffff93841673ffffffffffffffffffffffffffffffffffffffff199182161790915597890151600384018054919093169816979097179055608087015160049091015592835292905220549091506103f63482610556565b3360009081526002602052604090819020829055517fe8d947d7ebdd7b8b8fa2ad2022c7591418ac32d8c29c5f8a8fc9de52ffa540929161043a9190815260200190565b60405180910390a17f28e98b83f2df9fe9efcc7b23e1487634c2d4001d734219002bbc4b741c2447b48260405161047191906104e1565b60405180910390a15050565b60006020828403121561048e578081fd5b5035919050565b8051825260208101516020830152604081015173ffffffffffffffffffffffffffffffffffffffff80821660408501528060608401511660608501525050608081015160808301525050565b60a081016104ef8284610495565b92915050565b60006105018285610495565b60c060a083015282518060c0840152815b8181101561052f57602081860181015160e0868401015201610512565b81811115610540578260e083860101525b50601f01601f19169190910160e0019392505050565b60008219821115610569576105696105a4565b500190565b6000816000190483118215151615610588576105886105a4565b500290565b60008282101561059f5761059f6105a4565b500390565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fdfea26469706673582212207b0d4b552b862f76ec01ef64d5df69e4c25ef450f38edc6ebf72c8662217031164736f6c63430008020033",
+  "deployedBytecode": "0x608060405260043610610050577c010000000000000000000000000000000000000000000000000000000060003504632e1a7d4d8114610055578063a57497101461006a578063d0e30db014610091575b600080fd5b61006861006336600461047d565b610099565b005b34801561007657600080fd5b5061007f6102b1565b60405190815260200160405180910390f35b610068610308565b3360009081526002602052604090205481116102845760016000808282546100c19190610556565b90915550506040805160a08101825260008054825260208083018590523083850152336060840181905242608085015282526002905291822080549192849261010b90849061058d565b90915550506000805481526001602081815260408084208551815591850151928201929092558382015160028201805473ffffffffffffffffffffffffffffffffffffffff92831673ffffffffffffffffffffffffffffffffffffffff199182161790915560608601516003840180549190931691161790556080840151600490910155518190339085908381818185875af1925050503d80600081146101ce576040519150601f19603f3d011682016040523d82523d6000602084013e6101d3565b606091505b509150915081610243576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601260248201527f636f756c64206e6f742077697468647261770000000000000000000000000000604482015260640160405180910390fd5b7fda67dfebe676324b2e821f78a495885523e66dc69a7f5763afe60464bd350e4183826040516102749291906104f5565b60405180910390a15050506102ae565b6040517f1a0263ed436266744072d5b62695bd5a661e1b61e106a60b28f9b2559375cde390600090a15b50565b3360009081526002602090815260408083205490519081527fccd63b477c883a586271d6c5e65e8a82327bddc52ed1908a1078708f8c5c101a910160405180910390a1503360009081526002602052604090205490565b600160008082825461031a9190610556565b90915550506040805160a08101909152600080548252906020810161034734670de0b6b3a764000061056e565b815233602080830182905230604080850191909152426060948501526000805481526001808452828220875181558785015191810191909155868301516002808301805473ffffffffffffffffffffffffffffffffffffffff93841673ffffffffffffffffffffffffffffffffffffffff199182161790915597890151600384018054919093169816979097179055608087015160049091015592835292905220549091506103f63482610556565b3360009081526002602052604090819020829055517fe8d947d7ebdd7b8b8fa2ad2022c7591418ac32d8c29c5f8a8fc9de52ffa540929161043a9190815260200190565b60405180910390a17f28e98b83f2df9fe9efcc7b23e1487634c2d4001d734219002bbc4b741c2447b48260405161047191906104e1565b60405180910390a15050565b60006020828403121561048e578081fd5b5035919050565b8051825260208101516020830152604081015173ffffffffffffffffffffffffffffffffffffffff80821660408501528060608401511660608501525050608081015160808301525050565b60a081016104ef8284610495565b92915050565b60006105018285610495565b60c060a083015282518060c0840152815b8181101561052f57602081860181015160e0868401015201610512565b81811115610540578260e083860101525b50601f01601f19169190910160e0019392505050565b60008219821115610569576105696105a4565b500190565b6000816000190483118215151615610588576105886105a4565b500290565b60008282101561059f5761059f6105a4565b500390565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fdfea26469706673582212207b0d4b552b862f76ec01ef64d5df69e4c25ef450f38edc6ebf72c8662217031164736f6c63430008020033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [
@@ -2199,18 +2205,18 @@
       "name": "#utility.yul"
     }
   ],
-  "sourceMap": "99:1770:0:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "99:1770:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1099:666;;;;;;:::i;:::-;;:::i;:::-;;1770:93;;;;;;;;;;;;;:::i;595:499::-;;;:::i;1099:666::-;1166:10;1158:19;;;;:7;:19;;;;;;:29;-1:-1:-1;1154:604:0;;1223:1;1202:17;;:22;;;;;;;:::i;:::-;;;;-1:-1:-1;;1261:176:0;;;;;;;;1238:20;1290:17;;1261:176;;;;;;;;;1357:4;1261:176;;;;1380:10;1261:176;;;;;;1408:15;1261:176;;;;1451:19;;:7;:19;;;;;:29;;1261:176;;1325:6;;1451:29;;1325:6;;1451:29;:::i;:::-;;;;-1:-1:-1;;1494:31:0;1507:17;;1494:31;;:12;:31;;;;;;;;:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1494:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1576:34;1494:31;;1576:10;;1599:6;;1494:31;1576:34;1494:31;1576:34;1599:6;1576:10;:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1543:67;;;;1632:4;1624:35;;;;;;;1066:2:1;1624:35:0;;;1048:21:1;1105:2;1085:18;;;1078:30;1144:20;1124:18;;;1117:48;1182:18;;1624:35:0;;;;;;;;1678:17;1687:1;1690:4;1678:17;;;;;;;:::i;:::-;;;;;;;;1154:604;;;;;;1730:17;;;;;;;1154:604;1099:666;:::o;1770:93::-;1844:10;1836:19;;;;:7;:19;;;;;;;;;;1821:35;;2360:25:1;;;1821:35:0;;2333:18:1;1821:35:0;;;;;;;1770:93::o;595:499::-;659:1;638:17;;:22;;;;;;;:::i;:::-;;;;-1:-1:-1;;693:165:0;;;;;;;;;670:20;718:17;;693:165;;670:20;693:165;;;749:19;:9;761:7;749:19;:::i;:::-;693:165;;782:10;693:165;;;;;;;814:4;693:165;;;;;;;;833:15;693:165;;;;;-1:-1:-1;881:17:0;;868:31;;:12;:31;;;;;;:35;;;;;;;;;;;;;;;;;;;;;;;;;693:165;868:35;;;-1:-1:-1;;868:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;935:19;;;;;;;;670:188;;-1:-1:-1;986:26:0;1003:9;935:19;986:26;:::i;:::-;972:10;964:19;;;;:7;:19;;;;;;;:48;;;1028:28;;;;;2360:25:1;;;2348:2;2333:18;;2315:76;1028:28:0;;;;;;;;1072:10;1080:1;1072:10;;;;;;:::i;:::-;;;;;;;;595:499;;:::o;14:190:1:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;-1:-1:-1;175:23:1;;84:120;-1:-1:-1;84:120:1:o;209:440::-;292:5;286:12;281:3;274:25;348:4;341:5;337:16;331:23;324:4;319:3;315:14;308:47;401:4;394:5;390:16;384:23;426:42;518:2;504:12;500:21;493:4;488:3;484:14;477:45;583:2;575:4;568:5;564:16;558:23;554:32;547:4;542:3;538:14;531:56;;;636:4;629:5;625:16;619:23;612:4;607:3;603:14;596:47;264:385;;:::o;1211:255::-;1399:3;1384:19;;1412:48;1388:9;1442:6;1412:48;:::i;:::-;1366:100;;;;:::o;1471:738::-;;1682:48;1720:9;1712:6;1682:48;:::i;:::-;1767:3;1761;1750:9;1746:19;1739:32;1800:6;1794:13;1844:6;1838:3;1827:9;1823:19;1816:35;1869:4;1882:145;1896:6;1893:1;1890:13;1882:145;;;2010:4;1994:14;;;1990:25;;1984:32;1978:3;1959:17;;;1955:27;1948:69;1911:12;1882:145;;;2045:6;2042:1;2039:13;2036:2;;;2116:4;2110:3;2101:6;2090:9;2086:22;2082:32;2075:46;2036:2;-1:-1:-1;2192:2:1;2171:15;-1:-1:-1;;2167:29:1;2152:45;;;;2199:3;2148:55;;1672:537;-1:-1:-1;;;1672:537:1:o;2396:128::-;;2467:1;2463:6;2460:1;2457:13;2454:2;;;2473:18;;:::i;:::-;-1:-1:-1;2509:9:1;;2444:80::o;2529:168::-;;2635:1;2631;2627:6;2623:14;2620:1;2617:21;2612:1;2605:9;2598:17;2594:45;2591:2;;;2642:18;;:::i;:::-;-1:-1:-1;2682:9:1;;2581:116::o;2702:125::-;;2770:1;2767;2764:8;2761:2;;;2775:18;;:::i;:::-;-1:-1:-1;2812:9:1;;2751:76::o;2832:184::-;2884:77;2881:1;2874:88;2981:4;2978:1;2971:15;3005:4;3002:1;2995:15",
-  "source": "//SPDX-License-Identifier: MIT\npragma solidity >=0.4.0 <0.9.0;\npragma experimental ABIEncoderV2;\n\n\ncontract Payments{   \n    struct Transaction {\n        uint  ID;\n        uint value;\n        address from;\n        address to;\n        uint    time;\n        }\n    uint internal transactionNumber;\n    mapping(uint => Transaction) internal  transactions;\n    mapping(address => uint) internal balance;\n\n\n\n    event Withdraw(Transaction t, bytes data);\n    event Deposit(Transaction t);\n    event WithdrawFailure();\n    event CurrentBalance(uint amount);\n    event Balance(uint amount);\n   \n   \n    function deposit() public payable{\n        transactionNumber += 1;\n        Transaction memory t = Transaction(\n            transactionNumber,\n            msg.value * 1 ether,\n            msg.sender,\n            address(this),\n            block.timestamp\n        );\n        transactions[transactionNumber] = t;\n        uint currentBalance = balance[msg.sender];\n        balance[msg.sender] = currentBalance + msg.value;\n\n        emit Balance(balance[msg.sender]);\n\n        emit Deposit(t);\n    \n    }\n    function withdraw(uint amount) public payable{\n        if (balance[msg.sender] >= amount){\n            transactionNumber += 1;\n            Transaction memory t = Transaction(\n                transactionNumber,\n                amount,\n                address(this),\n                msg.sender,\n                block.timestamp\n            );\n            balance[msg.sender] -= amount;\n            transactions[transactionNumber] = t;\n            (bool sent, bytes memory data) = msg.sender.call{value: amount}(\"\");\n            require(sent, \"could not withdraw\");\n            emit Withdraw(t, data);\n\n        }else{\n            emit WithdrawFailure();\n        }\n\n    }\n    function getCurrentBalance() public {\n        emit CurrentBalance(balance[msg.sender]);\n    }\n\n\n\n\n}",
+  "sourceMap": "99:1821:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "99:1821:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1099:666;;;;;;:::i;:::-;;:::i;:::-;;1770:144;;;;;;;;;;;;;:::i;:::-;;;2360:25:1;;;2348:2;2333:18;1770:144:0;;;;;;;595:499;;;:::i;1099:666::-;1166:10;1158:19;;;;:7;:19;;;;;;:29;-1:-1:-1;1154:604:0;;1223:1;1202:17;;:22;;;;;;;:::i;:::-;;;;-1:-1:-1;;1261:176:0;;;;;;;;1238:20;1290:17;;1261:176;;;;;;;;;1357:4;1261:176;;;;1380:10;1261:176;;;;;;1408:15;1261:176;;;;1451:19;;:7;:19;;;;;:29;;1261:176;;1325:6;;1451:29;;1325:6;;1451:29;:::i;:::-;;;;-1:-1:-1;;1494:31:0;1507:17;;1494:31;;:12;:31;;;;;;;;:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1494:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1576:34;1494:31;;1576:10;;1599:6;;1494:31;1576:34;1494:31;1576:34;1599:6;1576:10;:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1543:67;;;;1632:4;1624:35;;;;;;;1066:2:1;1624:35:0;;;1048:21:1;1105:2;1085:18;;;1078:30;1144:20;1124:18;;;1117:48;1182:18;;1624:35:0;;;;;;;;1678:17;1687:1;1690:4;1678:17;;;;;;;:::i;:::-;;;;;;;;1154:604;;;;;;1730:17;;;;;;;1154:604;1099:666;:::o;1770:144::-;1857:10;1814:4;1849:19;;;:7;:19;;;;;;;;;1834:35;;2360:25:1;;;1834:35:0;;2333:18:1;1834:35:0;;;;;;;-1:-1:-1;1895:10:0;1887:19;;;;:7;:19;;;;;;1770:144;:::o;595:499::-;659:1;638:17;;:22;;;;;;;:::i;:::-;;;;-1:-1:-1;;693:165:0;;;;;;;;;670:20;718:17;;693:165;;670:20;693:165;;;749:19;:9;761:7;749:19;:::i;:::-;693:165;;782:10;693:165;;;;;;;814:4;693:165;;;;;;;;833:15;693:165;;;;;-1:-1:-1;881:17:0;;868:31;;:12;:31;;;;;;:35;;;;;;;;;;;;;;;;;;;;;;;;;693:165;868:35;;;-1:-1:-1;;868:35:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;935:19;;;;;;;;670:188;;-1:-1:-1;986:26:0;1003:9;935:19;986:26;:::i;:::-;972:10;964:19;;;;:7;:19;;;;;;;:48;;;1028:28;;;;;2360:25:1;;;2348:2;2333:18;;2315:76;1028:28:0;;;;;;;;1072:10;1080:1;1072:10;;;;;;:::i;:::-;;;;;;;;595:499;;:::o;14:190:1:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;-1:-1:-1;175:23:1;;84:120;-1:-1:-1;84:120:1:o;209:440::-;292:5;286:12;281:3;274:25;348:4;341:5;337:16;331:23;324:4;319:3;315:14;308:47;401:4;394:5;390:16;384:23;426:42;518:2;504:12;500:21;493:4;488:3;484:14;477:45;583:2;575:4;568:5;564:16;558:23;554:32;547:4;542:3;538:14;531:56;;;636:4;629:5;625:16;619:23;612:4;607:3;603:14;596:47;264:385;;:::o;1211:255::-;1399:3;1384:19;;1412:48;1388:9;1442:6;1412:48;:::i;:::-;1366:100;;;;:::o;1471:738::-;;1682:48;1720:9;1712:6;1682:48;:::i;:::-;1767:3;1761;1750:9;1746:19;1739:32;1800:6;1794:13;1844:6;1838:3;1827:9;1823:19;1816:35;1869:4;1882:145;1896:6;1893:1;1890:13;1882:145;;;2010:4;1994:14;;;1990:25;;1984:32;1978:3;1959:17;;;1955:27;1948:69;1911:12;1882:145;;;2045:6;2042:1;2039:13;2036:2;;;2116:4;2110:3;2101:6;2090:9;2086:22;2082:32;2075:46;2036:2;-1:-1:-1;2192:2:1;2171:15;-1:-1:-1;;2167:29:1;2152:45;;;;2199:3;2148:55;;1672:537;-1:-1:-1;;;1672:537:1:o;2396:128::-;;2467:1;2463:6;2460:1;2457:13;2454:2;;;2473:18;;:::i;:::-;-1:-1:-1;2509:9:1;;2444:80::o;2529:168::-;;2635:1;2631;2627:6;2623:14;2620:1;2617:21;2612:1;2605:9;2598:17;2594:45;2591:2;;;2642:18;;:::i;:::-;-1:-1:-1;2682:9:1;;2581:116::o;2702:125::-;;2770:1;2767;2764:8;2761:2;;;2775:18;;:::i;:::-;-1:-1:-1;2812:9:1;;2751:76::o;2832:184::-;2884:77;2881:1;2874:88;2981:4;2978:1;2971:15;3005:4;3002:1;2995:15",
+  "source": "//SPDX-License-Identifier: MIT\npragma solidity >=0.4.0 <0.9.0;\npragma experimental ABIEncoderV2;\n\n\ncontract Payments{   \n    struct Transaction {\n        uint  ID;\n        uint value;\n        address from;\n        address to;\n        uint    time;\n        }\n    uint internal transactionNumber;\n    mapping(uint => Transaction) internal  transactions;\n    mapping(address => uint) internal balance;\n\n\n\n    event Withdraw(Transaction t, bytes data);\n    event Deposit(Transaction t);\n    event WithdrawFailure();\n    event CurrentBalance(uint amount);\n    event Balance(uint amount);\n   \n   \n    function deposit() public payable{\n        transactionNumber += 1;\n        Transaction memory t = Transaction(\n            transactionNumber,\n            msg.value * 1 ether,\n            msg.sender,\n            address(this),\n            block.timestamp\n        );\n        transactions[transactionNumber] = t;\n        uint currentBalance = balance[msg.sender];\n        balance[msg.sender] = currentBalance + msg.value;\n\n        emit Balance(balance[msg.sender]);\n\n        emit Deposit(t);\n    \n    }\n    function withdraw(uint amount) public payable{\n        if (balance[msg.sender] >= amount){\n            transactionNumber += 1;\n            Transaction memory t = Transaction(\n                transactionNumber,\n                amount,\n                address(this),\n                msg.sender,\n                block.timestamp\n            );\n            balance[msg.sender] -= amount;\n            transactions[transactionNumber] = t;\n            (bool sent, bytes memory data) = msg.sender.call{value: amount}(\"\");\n            require(sent, \"could not withdraw\");\n            emit Withdraw(t, data);\n\n        }else{\n            emit WithdrawFailure();\n        }\n\n    }\n    function getCurrentBalance() public returns(uint){\n        emit CurrentBalance(balance[msg.sender]);\n        return (balance[msg.sender]);\n    }\n\n\n\n\n}",
   "sourcePath": "/home/memez-michalek/Desktop/projects/DecentralizedAllegro/frontend/contracts/Payments.sol",
   "ast": {
     "absolutePath": "project:/contracts/Payments.sol",
     "exportedSymbols": {
       "Payments": [
-        192
+        200
       ]
     },
-    "id": 193,
+    "id": 201,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -2243,9 +2249,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 192,
+        "id": 200,
         "linearizedBaseContracts": [
-          192
+          200
         ],
         "name": "Payments",
         "nameLocation": "108:8:0",
@@ -2396,7 +2402,7 @@
             "name": "Transaction",
             "nameLocation": "132:11:0",
             "nodeType": "StructDefinition",
-            "scope": 192,
+            "scope": 200,
             "src": "125:132:0",
             "visibility": "public"
           },
@@ -2407,7 +2413,7 @@
             "name": "transactionNumber",
             "nameLocation": "276:17:0",
             "nodeType": "VariableDeclaration",
-            "scope": 192,
+            "scope": 200,
             "src": "262:31:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2434,7 +2440,7 @@
             "name": "transactions",
             "nameLocation": "338:12:0",
             "nodeType": "VariableDeclaration",
-            "scope": 192,
+            "scope": 200,
             "src": "299:51:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2487,7 +2493,7 @@
             "name": "balance",
             "nameLocation": "390:7:0",
             "nodeType": "VariableDeclaration",
-            "scope": 192,
+            "scope": 200,
             "src": "356:41:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2959,7 +2965,7 @@
                             "referencedDeclaration": 4294967268,
                             "src": "814:4:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_Payments_$192",
+                              "typeIdentifier": "t_contract$_Payments_$200",
                               "typeString": "contract Payments"
                             }
                           }
@@ -2967,7 +2973,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_Payments_$192",
+                              "typeIdentifier": "t_contract$_Payments_$200",
                               "typeString": "contract Payments"
                             }
                           ],
@@ -3533,7 +3539,7 @@
               "parameters": [],
               "src": "628:0:0"
             },
-            "scope": 192,
+            "scope": 200,
             "src": "595:499:0",
             "stateMutability": "payable",
             "virtual": false,
@@ -3801,7 +3807,7 @@
                                   "referencedDeclaration": 4294967268,
                                   "src": "1357:4:0",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_Payments_$192",
+                                    "typeIdentifier": "t_contract$_Payments_$200",
                                     "typeString": "contract Payments"
                                   }
                                 }
@@ -3809,7 +3815,7 @@
                               "expression": {
                                 "argumentTypes": [
                                   {
-                                    "typeIdentifier": "t_contract$_Payments_$192",
+                                    "typeIdentifier": "t_contract$_Payments_$200",
                                     "typeString": "contract Payments"
                                   }
                                 ],
@@ -4481,7 +4487,7 @@
               "parameters": [],
               "src": "1144:0:0"
             },
-            "scope": 192,
+            "scope": 200,
             "src": "1099:666:0",
             "stateMutability": "payable",
             "virtual": false,
@@ -4489,48 +4495,48 @@
           },
           {
             "body": {
-              "id": 190,
+              "id": 198,
               "nodeType": "Block",
-              "src": "1806:57:0",
+              "src": "1819:95:0",
               "statements": [
                 {
                   "eventCall": {
                     "arguments": [
                       {
                         "baseExpression": {
-                          "id": 184,
+                          "id": 186,
                           "name": "balance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 24,
-                          "src": "1836:7:0",
+                          "src": "1849:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                             "typeString": "mapping(address => uint256)"
                           }
                         },
-                        "id": 187,
+                        "id": 189,
                         "indexExpression": {
                           "expression": {
-                            "id": 185,
+                            "id": 187,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967281,
-                            "src": "1844:3:0",
+                            "src": "1857:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 186,
+                          "id": 188,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "1844:10:0",
+                          "src": "1857:10:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -4541,7 +4547,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1836:19:0",
+                        "src": "1849:19:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -4555,18 +4561,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 183,
+                      "id": 185,
                       "name": "CurrentBalance",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 42,
-                      "src": "1821:14:0",
+                      "src": "1834:14:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 188,
+                    "id": 190,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4574,21 +4580,94 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1821:35:0",
+                    "src": "1834:35:0",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 189,
+                  "id": 191,
                   "nodeType": "EmitStatement",
-                  "src": "1816:40:0"
+                  "src": "1829:40:0"
+                },
+                {
+                  "expression": {
+                    "components": [
+                      {
+                        "baseExpression": {
+                          "id": 192,
+                          "name": "balance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 24,
+                          "src": "1887:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                            "typeString": "mapping(address => uint256)"
+                          }
+                        },
+                        "id": 195,
+                        "indexExpression": {
+                          "expression": {
+                            "id": 193,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967281,
+                            "src": "1895:3:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 194,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "1895:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1887:19:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 196,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1886:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 184,
+                  "id": 197,
+                  "nodeType": "Return",
+                  "src": "1879:28:0"
                 }
               ]
             },
             "functionSelector": "a5749710",
-            "id": 191,
+            "id": 199,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4602,32 +4681,60 @@
               "src": "1796:2:0"
             },
             "returnParameters": {
-              "id": 182,
+              "id": 184,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1806:0:0"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 183,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 199,
+                  "src": "1814:4:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 182,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1814:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1813:6:0"
             },
-            "scope": 192,
-            "src": "1770:93:0",
+            "scope": 200,
+            "src": "1770:144:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 193,
-        "src": "99:1770:0"
+        "scope": 201,
+        "src": "99:1821:0"
       }
     ],
-    "src": "31:1838:0"
+    "src": "31:1889:0"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/Payments.sol",
     "exportedSymbols": {
       "Payments": [
-        192
+        200
       ]
     },
-    "id": 193,
+    "id": 201,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -4660,9 +4767,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 192,
+        "id": 200,
         "linearizedBaseContracts": [
-          192
+          200
         ],
         "name": "Payments",
         "nameLocation": "108:8:0",
@@ -4813,7 +4920,7 @@
             "name": "Transaction",
             "nameLocation": "132:11:0",
             "nodeType": "StructDefinition",
-            "scope": 192,
+            "scope": 200,
             "src": "125:132:0",
             "visibility": "public"
           },
@@ -4824,7 +4931,7 @@
             "name": "transactionNumber",
             "nameLocation": "276:17:0",
             "nodeType": "VariableDeclaration",
-            "scope": 192,
+            "scope": 200,
             "src": "262:31:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -4851,7 +4958,7 @@
             "name": "transactions",
             "nameLocation": "338:12:0",
             "nodeType": "VariableDeclaration",
-            "scope": 192,
+            "scope": 200,
             "src": "299:51:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -4904,7 +5011,7 @@
             "name": "balance",
             "nameLocation": "390:7:0",
             "nodeType": "VariableDeclaration",
-            "scope": 192,
+            "scope": 200,
             "src": "356:41:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -5376,7 +5483,7 @@
                             "referencedDeclaration": 4294967268,
                             "src": "814:4:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_Payments_$192",
+                              "typeIdentifier": "t_contract$_Payments_$200",
                               "typeString": "contract Payments"
                             }
                           }
@@ -5384,7 +5491,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_Payments_$192",
+                              "typeIdentifier": "t_contract$_Payments_$200",
                               "typeString": "contract Payments"
                             }
                           ],
@@ -5950,7 +6057,7 @@
               "parameters": [],
               "src": "628:0:0"
             },
-            "scope": 192,
+            "scope": 200,
             "src": "595:499:0",
             "stateMutability": "payable",
             "virtual": false,
@@ -6218,7 +6325,7 @@
                                   "referencedDeclaration": 4294967268,
                                   "src": "1357:4:0",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_Payments_$192",
+                                    "typeIdentifier": "t_contract$_Payments_$200",
                                     "typeString": "contract Payments"
                                   }
                                 }
@@ -6226,7 +6333,7 @@
                               "expression": {
                                 "argumentTypes": [
                                   {
-                                    "typeIdentifier": "t_contract$_Payments_$192",
+                                    "typeIdentifier": "t_contract$_Payments_$200",
                                     "typeString": "contract Payments"
                                   }
                                 ],
@@ -6898,7 +7005,7 @@
               "parameters": [],
               "src": "1144:0:0"
             },
-            "scope": 192,
+            "scope": 200,
             "src": "1099:666:0",
             "stateMutability": "payable",
             "virtual": false,
@@ -6906,48 +7013,48 @@
           },
           {
             "body": {
-              "id": 190,
+              "id": 198,
               "nodeType": "Block",
-              "src": "1806:57:0",
+              "src": "1819:95:0",
               "statements": [
                 {
                   "eventCall": {
                     "arguments": [
                       {
                         "baseExpression": {
-                          "id": 184,
+                          "id": 186,
                           "name": "balance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 24,
-                          "src": "1836:7:0",
+                          "src": "1849:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                             "typeString": "mapping(address => uint256)"
                           }
                         },
-                        "id": 187,
+                        "id": 189,
                         "indexExpression": {
                           "expression": {
-                            "id": 185,
+                            "id": 187,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967281,
-                            "src": "1844:3:0",
+                            "src": "1857:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 186,
+                          "id": 188,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "1844:10:0",
+                          "src": "1857:10:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -6958,7 +7065,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1836:19:0",
+                        "src": "1849:19:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -6972,18 +7079,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 183,
+                      "id": 185,
                       "name": "CurrentBalance",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 42,
-                      "src": "1821:14:0",
+                      "src": "1834:14:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 188,
+                    "id": 190,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6991,21 +7098,94 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1821:35:0",
+                    "src": "1834:35:0",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 189,
+                  "id": 191,
                   "nodeType": "EmitStatement",
-                  "src": "1816:40:0"
+                  "src": "1829:40:0"
+                },
+                {
+                  "expression": {
+                    "components": [
+                      {
+                        "baseExpression": {
+                          "id": 192,
+                          "name": "balance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 24,
+                          "src": "1887:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                            "typeString": "mapping(address => uint256)"
+                          }
+                        },
+                        "id": 195,
+                        "indexExpression": {
+                          "expression": {
+                            "id": 193,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967281,
+                            "src": "1895:3:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 194,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "1895:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1887:19:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 196,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1886:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 184,
+                  "id": 197,
+                  "nodeType": "Return",
+                  "src": "1879:28:0"
                 }
               ]
             },
             "functionSelector": "a5749710",
-            "id": 191,
+            "id": 199,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -7019,23 +7199,51 @@
               "src": "1796:2:0"
             },
             "returnParameters": {
-              "id": 182,
+              "id": 184,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1806:0:0"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 183,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 199,
+                  "src": "1814:4:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 182,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1814:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1813:6:0"
             },
-            "scope": 192,
-            "src": "1770:93:0",
+            "scope": 200,
+            "src": "1770:144:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 193,
-        "src": "99:1770:0"
+        "scope": 201,
+        "src": "99:1821:0"
       }
     ],
-    "src": "31:1838:0"
+    "src": "31:1889:0"
   },
   "compiler": {
     "name": "solc",
@@ -7045,12 +7253,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xf2da3716AFF652eC3FA973DD4ae9a8516f6b9cfb",
-      "transactionHash": "0x02c084b9c4c1ece53075cea047ef33ee829e46b1e758b4035e6cd7731c39e55a"
+      "address": "0xC152001a355a176096ACB5dDd29C00BB5EcC53f2",
+      "transactionHash": "0x0143f6093466d2bca34aa94c6b3c15ddab395ca1805b46b4cd8d426e1fa59b91"
     }
   },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-17T22:47:59.752Z",
+  "updatedAt": "2021-07-19T01:09:40.965Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
