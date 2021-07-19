@@ -139,6 +139,7 @@ class App extends React.Component {
     })
 
     await contract.methods.getCurrentBalance().send({from: this.state.account,  gasLimit: "6000000"}).then((receipt)=>{
+      console.log(receipt)
       this.setState({contractBalance: receipt.events.CurrentBalance.returnValues.amount})
     }, function(error, callback){
       NotificationManager.info("transaction rejected")
