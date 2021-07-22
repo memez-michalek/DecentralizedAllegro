@@ -5,7 +5,7 @@ import React from "react"
 import Payments from "./build/contracts/Payments.json"
 import {NotificationContainer, NotificationManager}  from "react-notifications"
 import Typography from "@material-ui/core/Typography";
-import layout from "./components/layout"
+import LayoutComponent from "./components/LayoutComponent"
 import Type from './sites/Type';
 import {ThemeProvider} from '@material-ui/core'
 import { createTheme } from '@material-ui/core/styles';
@@ -46,13 +46,13 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Router>
-          <layout>
+          <LayoutComponent>
             <Switch>
               <Route exact path="/" component={Type}/>
               <Route path="/form" component={Form}/>
               <Route path="/users" component={Users}/>
             </Switch>
-          </layout>
+          </LayoutComponent>
       </Router>
     </ThemeProvider>
     )

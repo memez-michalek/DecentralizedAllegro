@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import UsersCard from "../components/UsersCard"
+import Masonry from "react-masonry-css"
 
 const useStyles = makeStyles({
     user: {
@@ -36,6 +37,14 @@ const deleteUsers = async (id) =>{
     changeData(newUsers)
 
 }
+
+const breakPoints = {
+    default: 3,
+    1100: 2,
+    600: 1,
+}
+
+
 return(
     <Container>
     {/*<Container>
@@ -51,17 +60,23 @@ return(
             </Grid>
         </Grid>
     */}
-    <Grid container spacing={3}>
+    
+    
+    <Masonry
+    breakpointCols={breakPoints}
+    className="my-masonry-grid"
+    columClassName="my-masonry-grid-column"
+    >
         {data.map(data=>(
-            <Grid item key={data.id} xs={12} md={6} lg={4}>
+            <div key={data.id} xs={12} md={6} lg={4}>
                 <UsersCard data={data} deleteElement={deleteUsers}></UsersCard>
 
 
-            </Grid>
+            </div>
 
         ))}
-
-    </Grid>
+    </Masonry>
+   
 
 
 

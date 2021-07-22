@@ -1,12 +1,28 @@
 {
   "users": [
     {
-      "name": "nwm",
-      "surname": "serio",
-      "description": "dupa chuj",
+      "name": "meme",
+      "surname": "michalek",
+      "description": "dziwnka",
       "age": "1999-12-12",
       "gender": "chlop",
       "id": 1
+    },
+    {
+      "name": "jd",
+      "surname": "jd",
+      "description": "chuj",
+      "age": "1999-12-12",
+      "gender": "baba",
+      "id": 2
+    },
+    {
+      "name": "eseketit",
+      "surname": "dupa",
+      "description": "cipa ciap",
+      "age": "1999-12-12",
+      "gender": "chlop",
+      "id": 3
     }
   ]
 }
