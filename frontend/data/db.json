@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "name": "nwm",
+      "surname": "serio",
+      "description": "dupa chuj",
+      "age": "1999-12-12",
+      "gender": "chlop",
+      "id": 1
+    }
+  ]
+}

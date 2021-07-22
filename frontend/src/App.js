@@ -5,13 +5,14 @@ import React from "react"
 import Payments from "./build/contracts/Payments.json"
 import {NotificationContainer, NotificationManager}  from "react-notifications"
 import Typography from "@material-ui/core/Typography";
-
+import layout from "./components/layout"
 import Type from './sites/Type';
 import {ThemeProvider} from '@material-ui/core'
 import { createTheme } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Form from "./sites/Form";
+import Users from "./sites/Users"
 const theme = createTheme({
   palette: {
     secondary: {
@@ -44,12 +45,14 @@ class App extends React.Component {
 
     return (
       <ThemeProvider theme={theme}>
-      <Router>
-      <Switch>
-      <Route exact path="/" component={Type}/>
-      <Route path="/form" component={Form}/>
-      
-      </Switch>
+        <Router>
+          <layout>
+            <Switch>
+              <Route exact path="/" component={Type}/>
+              <Route path="/form" component={Form}/>
+              <Route path="/users" component={Users}/>
+            </Switch>
+          </layout>
       </Router>
     </ThemeProvider>
     )

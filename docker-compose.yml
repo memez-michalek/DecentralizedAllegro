@@ -3,10 +3,18 @@ services:
     frontend:
       build:
         context: "./frontend"
-      ports:
-        - "3000:3000"
+      #ports:
+      #  - "3000:3000"
       volumes:
         - "./frontend:/app"
+      network_mode: "host"
+    # json-server:
+    #   build:
+    #     context: "./frontend/data"
+    #   ports: 
+    #     - "8000:8000"
+    #   volumes:
+    #     - "./frontend/data:/app"
 
     #backend:
     #  build:
