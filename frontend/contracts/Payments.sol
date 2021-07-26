@@ -63,6 +63,8 @@ contract Payments{
         }
 
     }
+      //TODO ADD MORE FUNCTIONALITY SUCH AS DIRECT PAYMENTS BETWEEN USERS
+
     function getCurrentBalance() public returns(uint){
         emit CurrentBalance(balance[msg.sender]);
         return (balance[msg.sender]);

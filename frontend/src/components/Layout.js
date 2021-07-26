@@ -20,106 +20,151 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { useTheme } from '@material-ui/core';
 import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined';
 import ChevronRightOutlinedIcon from '@material-ui/icons/ChevronRightOutlined';
+import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
+import Avatar from '@material-ui/core/Avatar';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+//import {withSnackbar} from 'notistack'
+import Snackbar from '@material-ui/core/Snackbar';
+import AlertComponent from '../components/AlertComponent'
+import Alert from '@material-ui/lab/Alert';
 const drawerWidth = 240;
 const drawerData = [
     {
         id: 1,
         icon: <CallMadeOutlinedIcon/>,
-        caption: "Withdraw"
+        caption: "Withdraw",
+        location: "/withdraw"
     },
     {
         id: 2,
         icon: <CallReceivedOutlinedIcon/>,
-        caption: "Deposit"
+        caption: "Deposit",
+        location: "/deposit"
     },
     {
         id: 3,
         icon: <AddOutlinedIcon/>,
-        caption: "Add Listing"
+        caption: "Add Listing",
+        location: "/add"
+    },
+    {
+        id:4,
+        icon: <QuestionAnswerOutlinedIcon/>,
+        caption: "FAQ",
+        location: "/faq"
     }
 ];
 
-const styles = makeStyles((theme)=>({
-    root:{
-        display: 'flex',
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
     },
-    drawer:{
-        width: drawerWidth,
-        flexShrink: 0,
-
+    appBar: {
+      zIndex: theme.zIndex.drawer + 1,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
     },
-    drawerOpen:{
-        width: drawerWidth,
-        transition: theme.transitions.create('width',{
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        })
+    appBarShift: {
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
     },
-    drawerClose:{
-        transition: theme.transitions.create('width',{
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        overflowX: 'hidden',
-        width: theme.spacing(7) + 1,
-        [theme.breakpoints.up('sm')]:{
-            width: theme.spacing(9) + 1,
-        }
-
+    menuButton: {
+      marginRight: 36,
     },
-    appBar:{
-        ZIndex: theme.zIndex.drawer +1,
-        transition: theme.transitions.create(["width", "margin"],{
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        })
-
+    hide: {
+      display: 'none',
     },
-    appBarShift:{
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`, 
-        transition: theme.transitions.create(["width", "margin"],{
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        })
+    drawer: {
+      width: drawerWidth,
+      flexShrink: 0,
+      whiteSpace: 'nowrap',
     },
-    menuButton:{
-        margin: 30,
+    drawerOpen: {
+      width: drawerWidth,
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
     },
-    hide:{
+    drawerClose: {
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      overflowX: 'hidden',
+      width: theme.spacing(7) + 1,
+      [theme.breakpoints.up('sm')]: {
+        width: theme.spacing(9) + 1,
+      },
+    },
+    toolbar: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      padding: theme.spacing(0, 1),
+      // necessary for content to be below app bar
+      ...theme.mixins.toolbar,
+    },
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
+    },
+    appbarItems:{
         display: 'none',
+        [theme.breakpoints.up('md')]:{
+            display: 'flex'
+        }
     },
-    toolbar:{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,
+    logo:{
+      marginLeft: "40%",
+      
     },
-    content:{
-        flexGrow: 1,
-        padding: theme.spacing(3)
+    rightAlignment:{
+      marginRight: theme.spacing(1),
+      marginLeft: "auto",
+    },
+    Sitetoolbar: theme.mixins.toolbar,
+    page:{
+      width: "100%",
+      padding: theme.spacing(3)
     }
 
-
-}));
-
-
+  }));
+  
 
 
-function Layout(){
-    const classes = styles();
+function Layout({children}){
+    const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
+    
+
     const handleOpenDrawer = () =>{
         setOpen(true);
     }
     const handleCloseDrawer = () =>{
         setOpen(false);
     }
+    const showNotifications= () =>{
+        console.log("notifications")
+    }
+    const handleBasketClick = () =>{
+      return(
+      <AlertComponent message="jd" severity="info"></AlertComponent>
+      );
+    }
+    
+   
     
     return(
-        <div className={classes.root}>
+        <div className={classes.root}>r
             <CssBaseline/>
             <AppBar
             position="fixed"
@@ -129,7 +174,6 @@ function Layout(){
             >
                 <Toolbar>
                     <IconButton
-                    color="primary"
                     aria-label="open drawer"
                     onClick={handleOpenDrawer}
                     edge="start"
@@ -137,8 +181,52 @@ function Layout(){
                         [classes.hide]: open,
                     })}
                     >
-                        <MenuOutlinedIcon/>
+                        <MenuOutlinedIcon
+                        color="secondary"
+                        />
                     </IconButton>
+                    <IconButton
+                    href={"/"}
+                    aria-label="logo"
+                    className={classes.logo}
+                    disableRipple
+                    
+                    >
+                    <Typography
+                    variant="h5"
+                    
+                    color='secondary'
+                    >Decentralized Market</Typography>
+                    </IconButton>
+                    <IconButton
+                      className={classes.rightAlignment}
+                      onClick={handleBasketClick}
+                      aria-label="show basket contents"
+                    >
+                      <ShoppingCartOutlinedIcon
+                      color="secondary"></ShoppingCartOutlinedIcon>
+                    </IconButton>
+                    <IconButton
+                        //TODO ADD SHOPPING CART FUNCTIONALITY
+                        aria-label="show notifications"
+                        onClick={showNotifications}
+                        
+                    >   
+                        <NotificationsNoneOutlinedIcon
+                        color="secondary"
+                        //TODO ADD FUNCTIONALITY
+                        ></NotificationsNoneOutlinedIcon>
+                    </IconButton>
+                    <IconButton
+                    aria-label="avatar button"
+                    href={"/profile"}
+                    //TODO ADD FUNCTIONALITY
+                    >
+                      <Avatar src=""></Avatar>
+
+                    </IconButton>
+                    
+
                 </Toolbar>
 
             </AppBar>
@@ -148,10 +236,12 @@ function Layout(){
                 [classes.drawerOpen]: open,
                 [classes.drawerClose]: !open,
             })}
-            classes={clsx(classes.drawer, {
-                [classes.drawerOpen]: open,
-                [classes.drawerClose]: !open,
-            })}
+            classes={{
+                paper: clsx({
+                    [classes.drawerOpen]: open,
+                    [classes.drawerClose]: !open,
+                }),
+            }}
             >
                 <div className={classes.toolbar}>
                     <IconButton onClick={handleCloseDrawer}>
@@ -162,18 +252,22 @@ function Layout(){
                 <List>
                     {drawerData.map(item=>(
                         <ListItem>
+                            <IconButton
+                            href={item.location}
+                            >
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <Typography>{item.caption}</Typography>
-
+                            </IconButton>
                         </ListItem>
                     ))}
 
 
                 </List>
             </Drawer>
-            <main className={classes.content}>
-                <div className={classes.toolbar}></div>
-            </main>
+            <div className={classes.page}>
+              <div className={classes.Sitetoolbar}></div>
+              {children}
+            </div>
 
 
         </div>
