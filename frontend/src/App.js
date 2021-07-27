@@ -1,21 +1,20 @@
-import logo from './logo.svg';
+
 import "./index.css";
 import React from "react"
-
-import Payments from "./build/contracts/Payments.json"
-import {NotificationContainer, NotificationManager}  from "react-notifications"
-import Typography from "@material-ui/core/Typography";
-import { SnackbarProvider } from 'notistack';
-
+import loadable from '@loadable/component'
 import {ThemeProvider} from '@material-ui/core'
 import { createTheme } from '@material-ui/core/styles';
-import LoginFormSite from "./sites/LoginFormSite"
+
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import MainSite from "./sites/MainSite"
-import Layout from "./components/Layout";
-import FaqSite from "./sites/FaqSite"
-import ProfileSite from "./sites/ProfileSite"
-import RegisterFormSite from "./sites/RegisterFormSite"
+
+
+const MainSite = loadable(()=> import("./sites/MainSite"))
+const Layout = loadable(()=>import("./components/Layout"))
+const LoginFormSite = loadable(()=> import("./sites/LoginFormSite"))
+const FaqSite = loadable(()=> import("./sites/FaqSite"))
+const ProfileSite = loadable(()=> import("./sites/ProfileSite"))
+const RegisterFormSite = loadable(()=> import("./sites/RegisterFormSite"))
+const AddListing = loadable(()=> import("./sites/AddListing"))
 const theme = createTheme({
   palette: {
     secondary: {
@@ -61,6 +60,7 @@ class App extends React.Component {
               <Route path="/register" component={RegisterFormSite}/>
               <Route path="/profile" component={ProfileSite}/>
               <Route path="/login" component={LoginFormSite}/>
+              <Route path="/addlisting" component={AddListing}></Route>
             </Switch>
           </Layout>
       </Router>

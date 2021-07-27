@@ -4,13 +4,13 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Image from "./jd.jpg";
+
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined';
-import AlertComponent from './AlertComponent';
+
 const useStyles = makeStyles((theme)=>({
     
     image:{
@@ -21,16 +21,9 @@ const useStyles = makeStyles((theme)=>({
         width: "100%"
     }
 }))
-function onclick(data){
-    return(
-    <AlertComponent 
-                        CloseSnackbar={data.CloseSnackbar}
-                        open={data.open}
-                        severity="jd"
-                        message="jd"
-                        
-                        />
-    )}
+function onclick(){
+    console.log("clicked jd")
+}
 
 export default function ItemCard(data){
     const classes = useStyles();
@@ -46,19 +39,20 @@ export default function ItemCard(data){
                 />
                 <CardContent>
                     <Typography
-                    variant="h5"
+                    variant="h4"
                     color="primaryText"
                     >
                         {/*data.title*/}
                         Sample Title
                     </Typography>
                     <Typography
-                    variant="p"
+                    variant="h6"
                     color="primaryText"
                     >
                         Quas hic ipsam aut atque. Facere cumque ut distinctio quis alias est et minus. Inventore amet mollitia itaque. Corrupti nemo nihil itaque. Consequuntur voluptatum libero fugit eligendi ut harum maiores.
                     </Typography>
                 </CardContent>
+                </CardActionArea>
                 <CardActions>
                     <Button
                     variant="outlined"
@@ -70,15 +64,15 @@ export default function ItemCard(data){
                     <Button
                     variant="outlined"
                     color="secondary"
-                    onClick={onclick(data)}
+                    onClick={onclick}
                     startIcon={<MonetizationOnOutlinedIcon/>}
 
                     >
-                        {console.log("jd")}
+                        
                         Buy now!
                     </Button>
                 </CardActions>
-            </CardActionArea>
+            
         </Card>
     )
 }

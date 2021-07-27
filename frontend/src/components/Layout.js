@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from "clsx";
-import Container from "@material-ui/core/Container";
+
 import AppBar from "@material-ui/core/AppBar";
 import {useState} from "react";
 import Drawer from "@material-ui/core/Drawer";
@@ -24,10 +24,12 @@ import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutline
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import Avatar from '@material-ui/core/Avatar';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-//import {withSnackbar} from 'notistack'
-import Snackbar from '@material-ui/core/Snackbar';
-import AlertComponent from '../components/AlertComponent'
-import Alert from '@material-ui/lab/Alert';
+import CheckIfSessionCookieExists from "../components/CheckIfSessionCookieExists"
+
+
+
+import BalanceComponent from '../components/BalanceComponent'
+
 const drawerWidth = 240;
 const drawerData = [
     {
@@ -144,8 +146,8 @@ function Layout({children}){
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
+    const isLoggedIn = CheckIfSessionCookieExists()
     
-
     const handleOpenDrawer = () =>{
         setOpen(true);
     }
@@ -157,14 +159,14 @@ function Layout({children}){
     }
     const handleBasketClick = () =>{
       return(
-      <AlertComponent message="jd" severity="info"></AlertComponent>
+      <div></div>
       );
     }
     
    
     
     return(
-        <div className={classes.root}>r
+        <div className={classes.root}>
             <CssBaseline/>
             <AppBar
             position="fixed"
@@ -185,6 +187,8 @@ function Layout({children}){
                         color="secondary"
                         />
                     </IconButton>
+                    
+                    {isLoggedIn ? <BalanceComponent/> : <div></div>}
                     <IconButton
                     href={"/"}
                     aria-label="logo"

@@ -1,10 +1,17 @@
 import React from 'react';
+import loadable from '@loadable/component'
 import {makeStyles} from '@material-ui/core'
-import ItemCard from '../components/ItemCard'
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Masonry from 'react-masonry-css';
 import Typography from '@material-ui/core/Typography'
+/*
+const CategoryCard = loadable(()=> import("./components/CategoryCard"))
+const ItemCard = loadable(()=> import("./components/ItemCard"))
+*/
 import CategoryCard from "../components/CategoryCard"
+import ItemCard from "../components/ItemCard"
+
+
 const useStyles = makeStyles((theme)=>({
     root:{
         marginLeft: theme.spacing(3),
