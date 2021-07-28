@@ -34,6 +34,7 @@ export default function FormComponent(props){
     const [email, changeEmail] = useState("");
     const [username, changeUsername] = useState("");
     const [password, changePassword] = useState("");
+    const [depositAmount, changeDepositAmount] = useState("");
     const history = useHistory();
 
     const onChange = (e) =>{
@@ -48,6 +49,9 @@ export default function FormComponent(props){
                 break
             case "password":
                 changePassword(e.target.value)
+                break
+            case "deposit":
+                changeDepositAmount(e.target.value)
                 break
             default:
                 break
@@ -68,7 +72,9 @@ export default function FormComponent(props){
                 }
                 console.log(username)
                 break
-            
+            case "deposit":
+                console.log("jd")
+                break
             default:
                 break
         }
@@ -117,11 +123,11 @@ export default function FormComponent(props){
                     </form>
                 </div>
                 )
-            case "withdraw":
+            case "deposit":
                 return(
                     <div>
-                    <form onSubmit={onSubmit} name="withdraw">
-                        <InputTextField className={classes.form} type="number" label="withdraw" name="withdraw" id="withdraw"/>
+                    <form onSubmit={onSubmit} name="deposit">
+                        <InputTextField className={classes.form} type="number" label="deposit" name="deposit" id="deposit" onChange={onChange}/>
                     </form>
                     </div>
                 )

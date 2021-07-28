@@ -15,6 +15,8 @@ const FaqSite = loadable(()=> import("./sites/FaqSite"))
 const ProfileSite = loadable(()=> import("./sites/ProfileSite"))
 const RegisterFormSite = loadable(()=> import("./sites/RegisterFormSite"))
 const AddListing = loadable(()=> import("./sites/AddListing"))
+const DepositSite = loadable(()=> import("./sites/DepositSite"))
+
 const theme = createTheme({
   palette: {
     secondary: {
@@ -61,7 +63,7 @@ class App extends React.Component {
               <Route path="/profile" component={ProfileSite}/>
               <Route path="/login" component={LoginFormSite}/>
               <Route path="/addlisting" component={AddListing}></Route>
-            </Switch>
+              <Route path="/deposit" component={DepositSite}/>            </Switch>
           </Layout>
       </Router>
     </ThemeProvider>

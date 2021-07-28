@@ -1,7 +1,7 @@
 import React from 'react'
 import TextField from "@material-ui/core/TextField"
 
-
+//TODO ADD IMAGE FIELD
 export default function ImageField(props){
     return(
     <TextField
@@ -9,6 +9,7 @@ export default function ImageField(props){
     name={props.name}
     type="file"
     />        
+    
     )
 }
 

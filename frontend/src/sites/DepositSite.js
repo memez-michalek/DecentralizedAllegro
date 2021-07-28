@@ -5,18 +5,17 @@ import Web3 from "web3"
 import FormComponent from "../components/FormComponent"
 
 export default function DepositSite(){
-    const [deposit, changeDeposit] = useState();
+    const [depositAmount, changeDepositAmount] = useState();
+    const [address, changeAddress] = useState();
     const onChange = (e) =>{
         e.preventDefault();
     }
     
-    useEffect(()=>{
-
-
-    })
+    
     return(
         <div>
-            <FormComponent version="withdraw"></FormComponent>
+            
+            <FormComponent version="deposit"></FormComponent>
         </div>
 
     )
