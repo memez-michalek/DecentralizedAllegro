@@ -1,65 +1,71 @@
 import React from "react";
 import {useEffect, useState} from "react"
 import Typography from '@material-ui/core/Typography'
-import Web3 from "web3";
+//import Web3 from "web3";
+import {ethers} from "ethers"
 import Payments from "../build/contracts/Payments.json"
-import red from "@material-ui/core/colors/red"
+import IconButton from "@material-ui/core/IconButton"
+import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined';
+import Divider from '@material-ui/core/Divider';
 
-export default function BalanceComponent(){
+export default function BalanceComponent(props){
     const[balance, changeBalance] = useState(0);
     const[balanceInsideContract, changeInsideBalance] = useState("");
-    
-    useEffect(() => {
-        async function getAccounts(ethereum){
-            return await ethereum.request({method: 'eth_accounts'})
-        }
-        async function getBalance(ethereum, accounts){
-            let web3 = new Web3()
-            const usersBalance = await ethereum.request({method: 'eth_getBalance', params: [accounts[0], "latest"]})
-            const intBalance =  parseInt(usersBalance,16)
-            const balance = web3.utils.fromWei(String(intBalance), "ether")
-            return balance;
-        }
-        async function getCurrentProviderAndBalance(){
-        try{
-            if(typeof window.ethereum !== "undefined"){
-                console.log("connected")
-                
-            }else{
-                alert("error occurred")
-            }
-            const accounts = await getAccounts(window.ethereum)
-            changeBalance(await getBalance(window.ethereum, accounts))
-            
-        }catch(e){
-            console.error(e + "error occurred")
-        }
-    }
-    async function getBalanceInsideContract(){
-        let web3 = new Web3()
-        
-        const accounts = await getAccounts(window.ethereum)
-        const contract = new web3.eth.Contract(Payments.abi, "0x14Fcb51087d9651F0b11CECEB3E989D8d01F4984",{
-            from: accounts[0],
-            gasLimit: "600000",
-            gasPrice: "20000000000"
-        })
-        contract.methods.getCurrentBalance().send({from: accounts[0] }).then(function(receipt){
-            changeInsideBalance(receipt.events.currentBalance.returnValues.amount)
-        }, function(callback, err){
-            console.error(err)
+    const provider = new ethers.providers.Web3Provider(window.ethereum)        
+    const signer = provider.getSigner()
+    const contract = new ethers.Contract("0x9dc196b88318B0D1D5E2Edd22F0a19655a2a1dc8",Payments.abi, signer)
+
+
+    async function getBalanceInsideListener(){
+        contract.on("CurrentBalance", (data)=>{
+            changeInsideBalance(ethers.utils.formatEther(data))
         })
     }
 
-    getBalanceInsideContract()
-    getCurrentProviderAndBalance()
+    async function getBalanceInsideCaller(){
+        const tx = await contract.getCurrentBalance()
+        await tx.wait()
+    }
+
+    const balanceInsideOnClick = (e) =>{
+        e.preventDefault()
+        try{
+        getBalanceInsideCaller()
+        getBalanceInsideListener()
+
+    }catch(e){
+        console.log(e)
+    }
+        //changeInsideBalance(ethers.utils.formatEther(data.value))
+    
+    }
+
+    useEffect(() => {
+    async function getWalletBalance(){   
+
+    //CHANGE CONTRACT TO TRANSACTION THEN ACCESS events
+    try{    
+    const balance = await provider.getBalance(window.ethereum.selectedAddress)
+    changeBalance(ethers.utils.formatEther(balance))
+    }catch(e){
+        console.log(e)
+    }
+
+
+}   
+    getWalletBalance()
+    
     }, [])
 
+    
+    
+    if(balanceInsideContract !== ""){
     return(
         <div>
             <Typography
             variant="p"
             >Balance inside metamsk {balance} ETH</Typography>
+            <Divider/>
             <Typography
             variant="p"
             color={"red"}
@@ -67,5 +73,25 @@ export default function BalanceComponent(){
 
         </div>
     )
+    }else{
+        return(
+            <div>
+                <Typography
+                variant="p"
+                >Balance inside metamsk {balance} ETH</Typography>
+                
+                <Divider/>
+                <IconButton
+                    
+                    onClick={balanceInsideOnClick}
+                    aria-label="get deposited balance"
+                >
+                <AccountBalanceWalletOutlinedIcon
+                color="secondary"
+                />
+                </IconButton>
+            </div>
+        )
 
+    }
 }

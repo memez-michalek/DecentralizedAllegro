@@ -16,6 +16,8 @@ const ProfileSite = loadable(()=> import("./sites/ProfileSite"))
 const RegisterFormSite = loadable(()=> import("./sites/RegisterFormSite"))
 const AddListing = loadable(()=> import("./sites/AddListing"))
 const DepositSite = loadable(()=> import("./sites/DepositSite"))
+const WithdrawSite = loadable(()=> import("./sites/WithdrawSite"))
+const ConfirmationSite = loadable(()=> import("./sites/ConfirmationSite"))
 
 const theme = createTheme({
   palette: {
@@ -28,7 +30,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'OpenSans',
-    fontSize: "16",
+    fontSize: 16,
     fontWeightLight: 300,
     fontWeightSemibold: 600,
     fontWeightBold: 700,
@@ -63,7 +65,10 @@ class App extends React.Component {
               <Route path="/profile" component={ProfileSite}/>
               <Route path="/login" component={LoginFormSite}/>
               <Route path="/addlisting" component={AddListing}></Route>
-              <Route path="/deposit" component={DepositSite}/>            </Switch>
+              <Route path="/deposit" component={DepositSite}/>            
+              <Route path="/withdraw" component={WithdrawSite}/>
+              <Route path="/confirmation" component={WithdrawSite}/>
+              </Switch>
           </Layout>
       </Router>
     </ThemeProvider>

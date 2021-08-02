@@ -25,9 +25,6 @@ import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneO
 import Avatar from '@material-ui/core/Avatar';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import CheckIfSessionCookieExists from "../components/CheckIfSessionCookieExists"
-
-
-
 import BalanceComponent from '../components/BalanceComponent'
 
 const drawerWidth = 240;
@@ -55,7 +52,7 @@ const drawerData = [
         icon: <QuestionAnswerOutlinedIcon/>,
         caption: "FAQ",
         location: "/faq"
-    }
+    },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -125,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     logo:{
-      marginLeft: "40%",
+      marginLeft: "auto",
       
     },
     rightAlignment:{
@@ -136,6 +133,9 @@ const useStyles = makeStyles((theme) => ({
     page:{
       width: "100%",
       padding: theme.spacing(3)
+    },
+    balance:{
+      marginLeft: "auto",
     }
 
   }));
@@ -148,6 +148,7 @@ function Layout({children}){
     const [open, setOpen] = useState(false);
     const isLoggedIn = CheckIfSessionCookieExists()
     
+
     const handleOpenDrawer = () =>{
         setOpen(true);
     }
@@ -162,7 +163,6 @@ function Layout({children}){
       <div></div>
       );
     }
-    
    
     
     return(
@@ -188,7 +188,7 @@ function Layout({children}){
                         />
                     </IconButton>
                     
-                    {isLoggedIn ? <BalanceComponent/> : <div></div>}
+                    {isLoggedIn ? <BalanceComponent className={classes.balance}/> : <div></div>}
                     <IconButton
                     href={"/"}
                     aria-label="logo"
@@ -207,7 +207,7 @@ function Layout({children}){
                       onClick={handleBasketClick}
                       aria-label="show basket contents"
                     >
-                      <ShoppingCartOutlinedIcon
+                    <ShoppingCartOutlinedIcon
                       color="secondary"></ShoppingCartOutlinedIcon>
                     </IconButton>
                     <IconButton

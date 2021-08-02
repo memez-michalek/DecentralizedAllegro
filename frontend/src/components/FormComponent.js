@@ -10,6 +10,8 @@ import {useHistory} from "react-router-dom"
 import TextField from '@material-ui/core/TextField'
 import CheckIfSessionCookieExists from "./CheckIfSessionCookieExists"
 //import FormControl from "@material-ui/core/FormControl"
+import deposit from "./helpers/deposit"
+import withdraw from "./helpers/withdraw"
 
 const InputTextField = loadable(()=> import("./FormFields/InputTextField"))
 const ImageField = loadable(()=> import("./FormFields/ImageField"))
@@ -26,6 +28,7 @@ const styles = makeStyles((theme) =>({
 
 }))
 
+
 export default function FormComponent(props){
     const classes = styles()
     const isLoggedIn = CheckIfSessionCookieExists();
@@ -35,6 +38,7 @@ export default function FormComponent(props){
     const [username, changeUsername] = useState("");
     const [password, changePassword] = useState("");
     const [depositAmount, changeDepositAmount] = useState("");
+    const [withdrawAmount, changeWithdrawAmount] = useState("");
     const history = useHistory();
 
     const onChange = (e) =>{
@@ -53,13 +57,16 @@ export default function FormComponent(props){
             case "deposit":
                 changeDepositAmount(e.target.value)
                 break
+            case "withdraw":
+                changeWithdrawAmount(e.target.value)
+                break
             default:
                 break
         }
     }
     
     function onSubmit(e){
-        console.log(e)
+        e.preventDefault()
         switch(e.target.name){
             case "login-register":
                 const passwordRegex = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
@@ -71,9 +78,28 @@ export default function FormComponent(props){
                     console.log("empty username")
                 }
                 console.log(username)
-                break
+                return(
+                    <div>{history.push("/")}</div>
+                )
             case "deposit":
-                console.log("jd")
+                deposit(depositAmount).then(function(value){
+                    console.log(value)
+                    if (value){
+                        
+                        return(
+                            <div>jd</div>
+                        )
+                    }else{
+                        return(
+                        <div>Error occurred try again</div>
+                        )
+                    }
+                })
+                break
+            case "withdraw":
+                withdraw(withdrawAmount).then(function(value){
+                    console.log(value)
+                })
                 break
             default:
                 break
@@ -113,7 +139,6 @@ export default function FormComponent(props){
                 break
         }
     }else{
-        console.log(props.version)
         switch(props.version){
             case "addListing":
                 return(
@@ -126,9 +151,19 @@ export default function FormComponent(props){
             case "deposit":
                 return(
                     <div>
-                    <form onSubmit={onSubmit} name="deposit">
+                    <form onSubmit={onSubmit} name="deposit" method="post" action={"/confirmation"}>
                         <InputTextField className={classes.form} type="number" label="deposit" name="deposit" id="deposit" onChange={onChange}/>
+                        <Button color="primary" type="submit" className={classes.form} variant="outlined">Deposit</Button>
                     </form>
+                    </div>
+                )
+            case "withdraw":
+                return(
+                    <div>
+                        <form onSubmit={onSubmit} name="withdraw" method="post" action={"/confirmation"}>
+                            <InputTextField className={classes.form} type="number" label="withdraw" name="withdraw" id="withdraw" onChange={onChange}/>
+                            <Button color="primary" type="submit" className={classes.form} variant="outlined">Withdraw</Button>
+                        </form>
                     </div>
                 )
             default:
